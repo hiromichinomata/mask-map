@@ -132,9 +132,9 @@ function showPoint(pointId) {
       if(p.custom_note != '') {
         message += '<tr><th scope="row">特記事項</th><td>' + p.custom_note + '</td></tr>';
       }
-      message += '<tr><th scope="row">注意</th><td>' + p.note.replace(/\\n/g, '<br />') + '</td></tr>';
-      message += '<tr><th scope="row">電話</th><td>' + p.phone + '</td></tr>';
       message += '<tr><th scope="row">住所</th><td>' + p.address + '</td></tr>';
+      message += '<tr><th scope="row">電話</th><td>' + p.phone + '</td></tr>';
+      message += '<tr><th scope="row">メモ</th><td>' + p.note.replace(/\\n/g, '<br />') + '</td></tr>';
       message += '<tr><th scope="row">更新時間</th><td>' + p.updated + '</td></tr>';
       message += '<tr><td colspan="2">';
       if(p.service_periods != '') {
