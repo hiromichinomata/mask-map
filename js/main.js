@@ -53,8 +53,8 @@ var sidebarTitle = document.getElementById('sidebarTitle');
 var content = document.getElementById('sidebarContent');
 
 var appView = new ol.View({
-  center: ol.proj.fromLonLat([120.221507, 23.000694]),
-  zoom: 14
+  center: ol.proj.fromLonLat([139.63, 35.51]),
+  zoom: 5
 });
 
 var vectorPoints = new ol.layer.Vector({
