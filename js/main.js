@@ -230,7 +230,7 @@ $('#btn-geolocation').click(function () {
   if(coordinates) {
     appView.setCenter(coordinates);
   } else {
-    alert('目前使用的設備無法提供地理資訊');
+    alert('現在使用の端末では地理情報が許可されていないようです');
   }
   return false;
 });
