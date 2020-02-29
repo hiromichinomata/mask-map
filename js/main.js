@@ -53,8 +53,8 @@ var sidebarTitle = document.getElementById('sidebarTitle');
 var content = document.getElementById('sidebarContent');
 
 var appView = new ol.View({
-  center: ol.proj.fromLonLat([120.221507, 23.000694]),
-  zoom: 14
+  center: ol.proj.fromLonLat([139.63, 35.51]),
+  zoom: 6
 });
 
 var vectorPoints = new ol.layer.Vector({
@@ -67,22 +67,8 @@ var vectorPoints = new ol.layer.Vector({
 });
 
 var baseLayer = new ol.layer.Tile({
-    source: new ol.source.WMTS({
-        matrixSet: 'EPSG:3857',
-        format: 'image/png',
-        url: 'https://wmts.nlsc.gov.tw/wmts',
-        layer: 'EMAP',
-        tileGrid: new ol.tilegrid.WMTS({
-            origin: ol.extent.getTopLeft(projectionExtent),
-            resolutions: resolutions,
-            matrixIds: matrixIds
-        }),
-        style: 'default',
-        wrapX: true,
-        attributions: '<a href="http://maps.nlsc.gov.tw/" target="_blank">國土測繪圖資服務雲</a>'
-    }),
-    opacity: 0.8
-});
+    source: new ol.source.OSM()
+  });
 
 var map = new ol.Map({
   layers: [baseLayer, vectorPoints],
@@ -130,32 +116,32 @@ function showPoint(pointId) {
       var lonLat = ol.proj.toLonLat(p.geometry.getCoordinates());
       var message = '<table class="table table-dark">';
       message += '<tbody>';
-      message += '<tr><th scope="row" style="width: 100px;">名稱</th><td>';
+      message += '<tr><th scope="row" style="width: 100px;">名前</th><td>';
       message += '<a href="http://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=' + p.id + '" target="_blank">' + p.name + '</a>';
       if(p.website != '') {
         message += ' &nbsp; <a href="' + p.website + '" target="_blank" class="pull-right">(網站)</a>';
       }
       message += '</td></tr>';
       if(p.updated === '') {
-        message += '<tr><th scope="row">成人口罩庫存</th><td>無資料</td></tr>';
-        message += '<tr><th scope="row">兒童口罩庫存</th><td>無資料</td></tr>';
+        message += '<tr><th scope="row">マスク(L)</th><td>-</td></tr>';
+        message += '<tr><th scope="row">マスク(S)</th><td>-</td></tr>';
       } else {
-        message += '<tr><th scope="row">成人口罩庫存</th><td>' + p.mask_adult + '</td></tr>';
-        message += '<tr><th scope="row">兒童口罩庫存</th><td>' + p.mask_child + '</td></tr>';
+        message += '<tr><th scope="row">マスク(L)</th><td>' + p.mask_adult + '</td></tr>';
+        message += '<tr><th scope="row">マスク(S)</th><td>' + p.mask_child + '</td></tr>';
       }
       if(p.custom_note != '') {
-        message += '<tr><th scope="row">口罩銷售提醒</th><td>' + p.custom_note + '</td></tr>';
+        message += '<tr><th scope="row">特記事項</th><td>' + p.custom_note + '</td></tr>';
       }
-      message += '<tr><th scope="row">備註</th><td>' + p.note.replace(/\\n/g, '<br />') + '</td></tr>';
+      message += '<tr><th scope="row">住所</th><td>' + p.address + '</td></tr>';
       message += '<tr><th scope="row">電話</th><td>' + p.phone + '</td></tr>';
-      message += '<tr><th scope="row">住址</th><td>' + p.address + '</td></tr>';
+      message += '<tr><th scope="row">メモ</th><td>' + p.note.replace(/\\n/g, '<br />') + '</td></tr>';
       message += '<tr><th scope="row">更新時間</th><td>' + p.updated + '</td></tr>';
       message += '<tr><td colspan="2">';
       if(p.service_periods != '') {
         var sParts = p.service_periods.split('');
         message += '<table class="table table-bordered text-center" style="color: black;">';
-        message += '<thead class="table-dark"><tr><th></th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th><th>日</th></tr></thead><tbody>';
-        message += '<tr><td class="table-dark">上</td>';
+        message += '<thead class="table-dark"><tr><th></th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日</th></tr></thead><tbody>';
+        message += '<tr><td class="table-dark">午前</td>';
         for(i = 0; i < 7; i++) {
           if(sParts[i] == 'N') {
             message += '<td class="table-success"><i class="fa fa-check-circle"></i></td>';
@@ -164,7 +150,7 @@ function showPoint(pointId) {
           }
         }
         message += '</tr>';
-        message += '<tr><td class="table-dark">下</td>';
+        message += '<tr><td class="table-dark">午後</td>';
         for(i = 7; i < 14; i++) {
           if(sParts[i] == 'N') {
             message += '<td class="table-success"><i class="fa fa-check-circle"></i></td>';
@@ -173,7 +159,7 @@ function showPoint(pointId) {
           }
         }
         message += '</tr>';
-        message += '<tr><td class="table-dark">晚</td>';
+        message += '<tr><td class="table-dark">夜</td>';
         for(i = 14; i < 21; i++) {
           if(sParts[i] == 'N') {
             message += '<td class="table-success"><i class="fa fa-check-circle"></i></td>';
@@ -185,16 +171,16 @@ function showPoint(pointId) {
         message += '</tbody></table>';
       }
       message += '<hr /><div class="btn-group-vertical" role="group" style="width: 100%;">';
-      message += '<a href="https://www.google.com/maps/dir/?api=1&destination=' + lonLat[1] + ',' + lonLat[0] + '&travelmode=driving" target="_blank" class="btn btn-info btn-lg btn-block">Google 導航</a>';
-      message += '<a href="https://wego.here.com/directions/drive/mylocation/' + lonLat[1] + ',' + lonLat[0] + '" target="_blank" class="btn btn-info btn-lg btn-block">Here WeGo 導航</a>';
-      message += '<a href="https://bing.com/maps/default.aspx?rtp=~pos.' + lonLat[1] + '_' + lonLat[0] + '" target="_blank" class="btn btn-info btn-lg btn-block">Bing 導航</a>';
+      message += '<a href="https://www.google.com/maps/dir/?api=1&destination=' + lonLat[1] + ',' + lonLat[0] + '&travelmode=driving" target="_blank" class="btn btn-info btn-lg btn-block">Googleマップ</a>';
+      message += '<br />'
+      message += '<a href="https://bing.com/maps/default.aspx?rtp=~pos.' + lonLat[1] + '_' + lonLat[0] + '" target="_blank" class="btn btn-info btn-lg btn-block">Bingマップ</a>';
       message += '</div></td></tr>';
       message += '</tbody></table>';
       sidebarTitle.innerHTML = p.name;
       content.innerHTML = message;
     }
   }
-  sidebar.open('home');
+  sidebar.open('info');
 }
 
 var geolocation = new ol.Geolocation({
@@ -244,7 +230,7 @@ $('#btn-geolocation').click(function () {
   if(coordinates) {
     appView.setCenter(coordinates);
   } else {
-    alert('目前使用的設備無法提供地理資訊');
+    alert('現在使用の端末では地理情報が許可されていないようです');
   }
   return false;
 });

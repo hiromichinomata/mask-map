@@ -41,21 +41,26 @@
             <ul role="tablist">
                 <li><a href="#settings" role="tab"><i class="fa fa-search"></i></a></li>
                 <li><a href="#book" role="tab"><i class="fa fa-book"></i></a></li>
+                <li><a href="#info" role="tab"><i class="fa fa-info"></i></a></li>
             </ul>
         </div>
 
         <!-- Tab panes -->
         <div class="sidebar-content">
+            <div class="sidebar-pane" id="info">
+              <h1 class="sidebar-header"><span id="sidebarTitle">情報</span><span class="sidebar-close"><i class="fa fa-times"></i></span></h1>
+              <div id="sidebarContent"></div>
+            </div>
             <div class="sidebar-pane" id="book">
                 <h1 class="sidebar-header"><span id="weekTitle">説明</span><span class="sidebar-close"><i class="fa fa-times"></i></span></h1>
                 <div class="panel">
                     <br />
                     <ul>
                         <li><span style="color:#ccc">▲</span>情報なし</li>
-                        <li><span style="color:#48c774">▲</span>：成人マスク > 100 & 子供マスク > 25</li>
-                        <li><span style="color:#ffdd57">▲</span>：成人マスク > 40 & 子供マスク > 10</li>
-                        <li><span style="color:#fc82b1">▲</span>：成人マスク > 20 & 子供マスク > 5</li>
-                        <li><span style="color:#f00">▲</span>：成人マスク <= 20 または 子供マスク <= 5</li>
+                        <li><span style="color:#48c774">▲</span>：マスク(L) > 100 & マスク(S) > 25</li>
+                        <li><span style="color:#ffdd57">▲</span>：マスク(L) > 40 & マスク(S) > 10</li>
+                        <li><span style="color:#fc82b1">▲</span>：マスク(L) > 20 & マスク(S) > 5</li>
+                        <li><span style="color:#f00">▲</span>：マスク(L) <= 20 または マスク(S) <= 5</li>
                     </ul>
                 </div>
             </div>
