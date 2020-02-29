@@ -4,7 +4,7 @@
         {
             "type": "Feature",
             "properties": {
-                "id": "5901012409",
+                "id": "skytree",
                 "name": "スカイツリー",
                 "phone": "02 -37652080",
                 "address": "台北市松山區民生東路5段73號",
@@ -23,15 +23,15 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    121.558489,
-                    25.058709
+                    139.8107,
+                    35.7101
                 ]
             }
         },
        {
             "type": "Feature",
             "properties": {
-                "id": "2101200017",
+                "id": "tokyo_tower",
                 "name": "東京タワー",
                 "phone": "(02)22343501",
                 "address": "臺北市文山區木柵路３段２２０號",
@@ -50,8 +50,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    121.570087,
-                    24.989604
+                    139.7454316,
+                    35.658584
                 ]
             }
         }
