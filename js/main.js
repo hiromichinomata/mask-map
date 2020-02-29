@@ -180,7 +180,7 @@ function showPoint(pointId) {
       content.innerHTML = message;
     }
   }
-  sidebar.open('home');
+  sidebar.open('info');
 }
 
 var geolocation = new ol.Geolocation({
