@@ -4,17 +4,17 @@
         {
             "type": "Feature",
             "properties": {
-                "id": "skytree",
-                "name": "スカイツリー",
+                "id": "futaba_tera",
+                "name": "フタバ図書館TERA広島府中店",
                 "phone": "",
                 "address": "",
-                "mask_adult": 394,
-                "mask_child": 526,
-                "updated": "2020\/02\/29 15:41:39",
+                "mask_adult": 100,
+                "mask_child": 0,
+                "updated": "2020\/02\/29 11:02:00",
                 "available": "",
                 "note": "",
                 "custom_note": "",
-                "website": "",
+                "website": "https://twitter.com/futaba_tera/status/1233573301865238529",
                 "county": "",
                 "town": "",
                 "cunli": "",
@@ -23,25 +23,25 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    139.8107,
-                    35.7101
+                    132.4976184,
+                    34.3947239
                 ]
             }
         },
        {
             "type": "Feature",
             "properties": {
-                "id": "tokyo_tower",
-                "name": "東京タワー",
+                "id": "TSUTAYA0414",
+                "name": "TSUTAYA久慈店",
                 "phone": "",
                 "address": "",
-                "mask_adult": 20,
-                "mask_child": 30,
-                "updated": "2020\/02\/29 15:41:39",
+                "mask_adult": 0,
+                "mask_child": 0,
+                "updated": "2020\/02\/29 18:07",
                 "available": "",
                 "note": "",
                 "custom_note": "",
-                "website": "",
+                "website": "https://twitter.com/TSUTAYA0414/status/1233680263701352451",
                 "county": "",
                 "town": "",
                 "cunli": "",
@@ -50,8 +50,35 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    139.7454316,
-                    35.658584
+                    141.7708276,
+                    40.1920582
+                ]
+            }
+        },
+       {
+            "type": "Feature",
+            "properties": {
+                "id": "btown621",
+                "name": "ブックTOWN角田店",
+                "phone": "",
+                "address": "",
+                "mask_adult": 20,
+                "mask_child": 0,
+                "updated": "2020\/02\/29 15:14",
+                "available": "",
+                "note": "",
+                "custom_note": "",
+                "website": "https://twitter.com/btown621/status/1233636642860044288",
+                "county": "",
+                "town": "",
+                "cunli": "",
+                "service_periods": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    140.7780368,
+                    37.9807412
                 ]
             }
         }
