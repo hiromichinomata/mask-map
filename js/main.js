@@ -117,11 +117,7 @@ function showPoint(pointId) {
       var message = '<table class="table table-dark">';
       message += '<tbody>';
       message += '<tr><th scope="row" style="width: 100px;">名前</th><td>';
-      message += '<a href="http://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=' + p.id + '" target="_blank">' + p.name + '</a>';
-      if(p.website != '') {
-        message += ' &nbsp; <a href="' + p.website + '" target="_blank" class="pull-right">(網站)</a>';
-      }
-      message += '</td></tr>';
+      message += p.name + '</td></tr>';
       if(p.updated === '') {
         message += '<tr><th scope="row">マスク(L)</th><td>-</td></tr>';
         message += '<tr><th scope="row">マスク(S)</th><td>-</td></tr>';
@@ -134,7 +130,7 @@ function showPoint(pointId) {
       }
       message += '<tr><th scope="row">住所</th><td>' + p.address + '</td></tr>';
       message += '<tr><th scope="row">電話</th><td>' + p.phone + '</td></tr>';
-      message += '<tr><th scope="row">メモ</th><td>' + p.note.replace(/\\n/g, '<br />') + '</td></tr>';
+      message += '<tr><th scope="row">ソース</th><td>' + '<a href="' + p.website + '" target="_blank">ツイート</a></td></tr>';
       message += '<tr><th scope="row">更新時間</th><td>' + p.updated + '</td></tr>';
       message += '<tr><td colspan="2">';
       if(p.service_periods != '') {
