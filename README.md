@@ -6,7 +6,7 @@ https://www.japanmaskmap.com
 Forked from https://github.com/kiang/pharmacies
 
 ## What
-Japan mask map silimar to Taiwan mask map.
+Japan mask map is silimar to Taiwan mask map.
 Unfortunately Japanese government doesn't have API for mask.
 
 I tried to use Twitter API for integration instead.
