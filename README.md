@@ -1,7 +1,7 @@
 # mask-map
 
 日本マスクマップ Japan Mask Map
-https://www.japanmaskmap.com
+https://amazing-goldwasser-7bb68e.netlify.app
 
 Forked from https://github.com/kiang/pharmacies
 
